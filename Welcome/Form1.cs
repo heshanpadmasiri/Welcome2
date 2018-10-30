@@ -147,12 +147,12 @@ namespace Welcome
 
                 //todo: based on the group pick image
                 
-                //pctBox.Image = Properties.Resources.anm_im;
-                //pctBox.Visible = false;
-                //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                //timer.Interval = 300;
-                //timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
-                //timer.Start();
+                pctBox.Image = Properties.Resources.anm_im;
+                pctBox.Visible = false;
+                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                timer.Interval = 300;
+                timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
+                timer.Start();
                 
                 
 
@@ -205,7 +205,6 @@ namespace Welcome
         public frmBg()
         {
             InitializeComponent();
-            
             buildMap();
             startHttpListner();
         }
