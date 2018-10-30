@@ -1,6 +1,6 @@
 ﻿namespace Welcome
 {
-    partial class Form1
+    partial class frmBg
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBg));
             this.lblName = new System.Windows.Forms.Label();
             this.lblTeam = new System.Windows.Forms.Label();
             this.pctBox = new System.Windows.Forms.PictureBox();
@@ -41,10 +41,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Evil of Frankenstein", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(250, 225);
+            this.lblName.Location = new System.Drawing.Point(333, 277);
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(316, 89);
+            this.lblName.Size = new System.Drawing.Size(421, 110);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,10 +55,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTeam.BackColor = System.Drawing.Color.Transparent;
             this.lblTeam.Font = new System.Drawing.Font("Evil of Frankenstein", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeam.Location = new System.Drawing.Point(250, 324);
+            this.lblTeam.Location = new System.Drawing.Point(333, 399);
             this.lblTeam.Margin = new System.Windows.Forms.Padding(0);
             this.lblTeam.Name = "lblTeam";
-            this.lblTeam.Size = new System.Drawing.Size(316, 89);
+            this.lblTeam.Size = new System.Drawing.Size(421, 110);
             this.lblTeam.TabIndex = 1;
             this.lblTeam.Text = "Name";
             this.lblTeam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -69,28 +69,31 @@
             this.pctBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pctBox.Image = global::Welcome.Properties.Resources.anm_im;
             this.pctBox.InitialImage = global::Welcome.Properties.Resources.anm_im;
-            this.pctBox.Location = new System.Drawing.Point(-5, -6);
+            this.pctBox.Location = new System.Drawing.Point(-317, -325);
+            this.pctBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctBox.Name = "pctBox";
-            this.pctBox.Size = new System.Drawing.Size(1632, 932);
+            this.pctBox.Size = new System.Drawing.Size(2176, 1147);
             this.pctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBox.TabIndex = 2;
             this.pctBox.TabStop = false;
             this.pctBox.Visible = false;
             this.pctBox.WaitOnLoad = true;
+            this.pctBox.Click += new System.EventHandler(this.pctBox_Click);
             // 
-            // Form1
+            // frmBg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.ControlBox = false;
             this.Controls.Add(this.pctBox);
             this.Controls.Add(this.lblTeam);
             this.Controls.Add(this.lblName);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "frmBg";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pctBox)).EndInit();
             this.ResumeLayout(false);
