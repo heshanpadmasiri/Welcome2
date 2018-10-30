@@ -100,13 +100,48 @@ namespace Welcome
             {
                 Person person = personMap[indexNo];
 
+
+                Image frame0 = Properties.Resources.walking_dead;
+                Image frame1 = Properties.Resources.fallen_angles;
+                Image frame2 = Properties.Resources.howling_beats;
+                Image frame3 = Properties.Resources.blood_seekers;
+                Image frame;
+                String house = person.team;
+                String teamR;
+                if (house.Equals("0"))
+                {
+                    frame = frame0;
+                    teamR = "Walking Dead";
+                }
+                else if (house.Equals("1"))
+                {
+                    frame = frame1;
+                    teamR = "Fallen Angels";
+                }
+                else if (house.Equals("2"))
+                {
+                    frame = frame2;
+                    teamR = "Howling Beasts";
+                }
+                else if (house.Equals("3"))
+                {
+                    frame = frame3;
+                    teamR = "Blood Seekers";
+                }
+                else
+                {
+                    frame = frame0;
+                    teamR = " ";
+                }
+
+
                 lblName.Invoke((MethodInvoker)delegate
                 {
                     lblName.Text = person.name;
                 });
                 lblTeam.Invoke((MethodInvoker)delegate
                 {
-                    lblTeam.Text = person.team;
+                    lblTeam.Text = teamR;
                 });
                 Image profilePic = null;
 
@@ -119,7 +154,9 @@ namespace Welcome
                 //timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
                 //timer.Start();
                 
-                Image frame = Properties.Resources.bg_red;
+                
+
+
                 try
                 {
                     String fName = ImageForm_Load();
@@ -345,5 +382,6 @@ namespace Welcome
         {
 
         }
+
     }
 }
