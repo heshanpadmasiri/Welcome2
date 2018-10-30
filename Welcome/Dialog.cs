@@ -24,7 +24,7 @@ namespace Welcome
 
         private void btnSubmit_Click(object sender,System.EventArgs args)
         {
-            //baseForm.playAnimation(txtIndex.Text);
+            baseForm.playAnimation(txtIndex.Text);
             baseForm.AcceptButton = this.btn_submit;
             this.btn_submit.DialogResult = DialogResult.OK;
             baseForm.updateFrom(txtIndex.Text);

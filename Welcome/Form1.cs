@@ -219,7 +219,6 @@ namespace Welcome
         public frmBg()
         {
             InitializeComponent();
-            
             buildMap();
             startHttpListner();
         }
