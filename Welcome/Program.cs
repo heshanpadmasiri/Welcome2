@@ -17,6 +17,7 @@ namespace Welcome
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
             Application.Run(new frmBg());
         }
        

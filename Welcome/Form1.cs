@@ -76,19 +76,27 @@ namespace Welcome
             System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
             string input = reader.ReadToEnd();
             Console.WriteLine(input);
-            
 
-            var jsonObj = JObject.Parse(input);
-            string indexNo = (string)jsonObj["indexNo"];
+
+            var temp = input.Split('=');
+            string indexNo = temp[1];
             updateFrom(indexNo);
-            Console.WriteLine("Done");
+            var responseObj = new JObject();
+            responseObj.Add("Success", true);
+            string str_obj = responseObj.ToString();
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(str_obj);
+            HttpListenerResponse response = context.Response;
+            response.ContentLength64 = buffer.Length;
+            System.IO.Stream output = response.OutputStream;
+            output.Write(buffer, 0, buffer.Length);
+            output.Close();
         }
 
         private void startHttpListner()
         {
             var httpListner = new HttpListener();
             this.listener = httpListner;
-            httpListner.Prefixes.Add("http://localhost:8080/");
+            httpListner.Prefixes.Add("http://192.168.137.1:8080/");
             httpListner.Start();
             Task.Factory.StartNew(() => { listen(httpListner); });
         }
@@ -112,12 +120,12 @@ namespace Welcome
 
                 //todo: based on the group pick image
                 
-                //pctBox.Image = Properties.Resources.anm_im;
-                //pctBox.Visible = false;
-                //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                //timer.Interval = 300;
-                //timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
-                //timer.Start();
+                pctBox.Image = Properties.Resources.anm_im;
+                pctBox.Visible = false;
+                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                timer.Interval = 300;
+                timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
+                timer.Start();
                 
                 Image frame = Properties.Resources.bg_red;
                 try
@@ -129,33 +137,39 @@ namespace Welcome
                 {
                     MessageBox.Show("Image load filed:" + ex.ToString());
                 }
-                
-                
-                using (frame)
+
+                try
                 {
-                    using(var bitmap = new Bitmap(frame.Width, frame.Height))
+                    using (frame)
                     {
-                        using(var canvas = Graphics.FromImage(bitmap))
+                        using (var bitmap = new Bitmap(frame.Width, frame.Height))
                         {
-                            canvas.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                            canvas.DrawImage(profilePic, new Point(((bitmap.Width / 2) - (profilePic.Width / 2)), ((bitmap.Height / 2) - (profilePic.Height / 2))));
-                            canvas.DrawImage(frame, new Point(0, 0));
-                            canvas.Save();
+                            using (var canvas = Graphics.FromImage(bitmap))
+                            {
+                                canvas.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                                canvas.DrawImage(profilePic, new Point(((bitmap.Width / 2) - (profilePic.Width / 2)), ((bitmap.Height / 2) - (profilePic.Height / 2))));
+                                canvas.DrawImage(frame, new Point(0, 0));
+                                canvas.Save();
+                            }
+                            try
+                            {
+                                bitmap.Save($"C:\\Night_out\\{person.indexNo}_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                                Image newBg = Image.FromFile($"C:\\Night_out\\{person.indexNo}_out.jpg");
+
+                                this.BackgroundImage = newBg;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
+                            }
                         }
-                        try
-                        {
-                            bitmap.Save($"C:\\Night_out\\{person.indexNo}_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                            Image newBg = Image.FromFile($"C:\\Night_out\\{person.indexNo}_out.jpg");
-                            
-                            this.BackgroundImage = newBg;
-                        } 
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.ToString());
-                        }
+
                     }
-                    
+                } catch(Exception ex)
+                {
+
                 }
+                
                 
             }
         }
@@ -302,8 +316,7 @@ namespace Welcome
             personMap.Add("170676", new Person("170676P", "0", "Gihan Ayeshmantha "));
             personMap.Add("170669", new Person("170669X", "1", "Disura Warusawithana "));
             personMap.Add("170243", new Person("170243L", "3", "Isuranga Iniyage "));
-            personMap.Add("170326", new Person("170326U", "2", "Hiruna Kumara "));
-
+            personMap.Add("170414", new Person("170414", "T", "Name"));
         }
 
         protected override void OnClick(EventArgs e)
@@ -317,11 +330,11 @@ namespace Welcome
 
         }
 
-<<<<<<< HEAD
+
         private String ImageForm_Load()
         {
             var f1 = GetLastUpdatedFileInDirectory(new DirectoryInfo(@"C:\\Night"));
-            return f1[0].FullName;
+            return f1[f1.Count -1].FullName;
         }
 
 
@@ -340,11 +353,11 @@ namespace Welcome
             }
 
             return lastUpdatedFile;
-=======
+        }
+
         private void pctBox_Click(object sender, EventArgs e)
         {
 
->>>>>>> c75b1b59c05b1059046a05425b884dd7e7183d2d
         }
     }
 }
