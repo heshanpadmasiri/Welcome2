@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +8,18 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Welcome
 {
-    public partial class Form1 : Form
+    public partial class frmBg : Form
     {
         private Dictionary<string, Person> personMap;
-
+        private HttpListener listener;
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
@@ -53,26 +56,69 @@ namespace Welcome
             
         }
 
+        private void listen(HttpListener listener)
+        {
+            while (true)
+            {
+                IAsyncResult result = listener.BeginGetContext(new AsyncCallback(listnerCallback), listener);
+                result.AsyncWaitHandle.WaitOne();
+            }
+
+
+        }
+
+        private void listnerCallback(IAsyncResult result)
+        {
+            HttpListenerContext context = listener.EndGetContext(result);
+            var request = context.Request;
+            System.IO.Stream body = request.InputStream;
+            System.Text.Encoding encoding = request.ContentEncoding;
+            System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
+            string input = reader.ReadToEnd();
+            Console.WriteLine(input);
+            
+
+            var jsonObj = JObject.Parse(input);
+            string indexNo = (string)jsonObj["indexNo"];
+            updateFrom(indexNo);
+            Console.WriteLine("Done");
+        }
+
+        private void startHttpListner()
+        {
+            var httpListner = new HttpListener();
+            this.listener = httpListner;
+            httpListner.Prefixes.Add("http://localhost:8080/");
+            httpListner.Start();
+            Task.Factory.StartNew(() => { listen(httpListner); });
+        }
+
         public void updateFrom(String indexNo)
         {
-            string realIndex = new string(indexNo.Take(7).ToArray());
-
-            if (personMap.ContainsKey(realIndex))
+            
+            if (personMap.ContainsKey(indexNo))
             {
-                Person person = personMap[realIndex];
-                lblName.Text = person.name;
-                lblTeam.Text = person.team;
+                Person person = personMap[indexNo];
+
+                lblName.Invoke((MethodInvoker)delegate
+                {
+                    lblName.Text = person.name;
+                });
+                lblTeam.Invoke((MethodInvoker)delegate
+                {
+                    lblTeam.Text = person.team;
+                });
                 Image profilePic = null;
 
                 //todo: based on the group pick image
-                /*
-                pctBox.Image = Properties.Resources.anm_im;
-                pctBox.Visible = true;
-                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                timer.Interval = 300;
-                timer.Tick += (source, e) => { pctBox.Visible = f1alse; timer.Stop(); };
-                timer.Start();
-                */
+                
+                //pctBox.Image = Properties.Resources.anm_im;
+                //pctBox.Visible = false;
+                //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                //timer.Interval = 300;
+                //timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
+                //timer.Start();
+                
                 Image frame = Properties.Resources.bg_red;
                 try
                 {
@@ -96,9 +142,17 @@ namespace Welcome
                             canvas.DrawImage(frame, new Point(0, 0));
                             canvas.Save();
                         }
-                        bitmap.Save($"C:\\Night_out\\{person.indexNo}_out.jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
-                        Image newBg = Image.FromFile($"C:\\Night_out\\{person.indexNo}_out.jpg");
-                        this.BackgroundImage = newBg;
+                        try
+                        {
+                            bitmap.Save($"C:\\Night_out\\{person.indexNo}_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                            Image newBg = Image.FromFile($"C:\\Night_out\\{person.indexNo}_out.jpg");
+                            
+                            this.BackgroundImage = newBg;
+                        } 
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
                     }
                     
                 }
@@ -111,11 +165,12 @@ namespace Welcome
             Dialog dialog = new Dialog(this);
             dialog.Show(this);
         }
-        public Form1()
+        public frmBg()
         {
             InitializeComponent();
             
             buildMap();
+            startHttpListner();
         }
 
 
@@ -262,6 +317,7 @@ namespace Welcome
 
         }
 
+<<<<<<< HEAD
         private String ImageForm_Load()
         {
             var f1 = GetLastUpdatedFileInDirectory(new DirectoryInfo(@"C:\\Night"));
@@ -284,6 +340,11 @@ namespace Welcome
             }
 
             return lastUpdatedFile;
+=======
+        private void pctBox_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> c75b1b59c05b1059046a05425b884dd7e7183d2d
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Welcome
 {
     public partial class Dialog : Form
     {
-        Form1 baseForm;
-        public Dialog(Form1 form)
+        frmBg baseForm;
+        public Dialog(frmBg form)
         {
             this.baseForm = form;
             InitializeComponent(form);

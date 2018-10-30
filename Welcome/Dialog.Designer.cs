@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(Form1 form)
+        private void InitializeComponent(frmBg form)
         {
             this.btn_submit = new System.Windows.Forms.Button();
             form.AcceptButton = this.btn_submit;
