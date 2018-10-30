@@ -23,3 +23,16 @@ C:\Users\HeshanPadmasiri\Documents\Welcome-master\Welcome\bin\Debug\Newtonsoft.J
 C:\Users\HeshanPadmasiri\Documents\Welcome-master\Welcome\bin\Debug\Newtonsoft.Json.xml
 C:\Users\HeshanPadmasiri\Documents\Welcome-master\Welcome\obj\Debug\Welcome.csproj.CopyComplete
 C:\Users\HeshanPadmasiri\Documents\Welcome-master\Welcome\obj\Debug\Welcome.frmBg.resources
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.csprojResolveAssemblyReference.cache
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.Dialog.resources
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.frmBg.resources
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.Properties.Resources.resources
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.csproj.GenerateResource.Cache
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.csproj.CoreCompileInputs.cache
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.exe
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\obj\Debug\Welcome.pdb
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\bin\Debug\Welcome.exe.config
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\bin\Debug\Welcome.exe
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\bin\Debug\Welcome.pdb
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hasitha Isuru\Source\Repos\Welcome2\Welcome\bin\Debug\Newtonsoft.Json.xml

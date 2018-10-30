@@ -302,7 +302,6 @@ namespace Welcome
             personMap.Add("170676", new Person("170676P", "0", "Gihan Ayeshmantha "));
             personMap.Add("170669", new Person("170669X", "1", "Disura Warusawithana "));
             personMap.Add("170243", new Person("170243L", "3", "Isuranga Iniyage "));
-            personMap.Add("170326", new Person("170326U", "2", "Hiruna Kumara "));
 
         }
 
@@ -317,11 +316,11 @@ namespace Welcome
 
         }
 
-<<<<<<< HEAD
+
         private String ImageForm_Load()
         {
             var f1 = GetLastUpdatedFileInDirectory(new DirectoryInfo(@"C:\\Night"));
-            return f1[0].FullName;
+            return f1[(f1.Count)-1].FullName;
         }
 
 
@@ -340,11 +339,11 @@ namespace Welcome
             }
 
             return lastUpdatedFile;
-=======
+        }
+
         private void pctBox_Click(object sender, EventArgs e)
         {
 
->>>>>>> c75b1b59c05b1059046a05425b884dd7e7183d2d
         }
     }
 }
