@@ -109,5 +109,12 @@
   <ItemGroup>
     <None Include="Resources\anm_im.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\blood_seekers.png" />
+    <Content Include="Resources\fallen_angles.png" />
+    <Content Include="Resources\howling_beats.png" />
+    <Content Include="Resources\walking_dead.png" />
+    <None Include="Resources\Image0.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

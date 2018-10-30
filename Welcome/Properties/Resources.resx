@@ -130,4 +130,16 @@
   <data name="bg_red_diff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_red_diff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blood_seekers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\blood_seekers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fallen_angles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\fallen_angles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="howling_beats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\howling_beats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="walking_dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\walking_dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

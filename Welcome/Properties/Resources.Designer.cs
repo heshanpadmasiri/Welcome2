@@ -91,12 +91,52 @@ namespace Welcome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blood_seekers {
+            get {
+                object obj = ResourceManager.GetObject("blood_seekers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] EvilofFrankenstein {
             get {
                 object obj = ResourceManager.GetObject("EvilofFrankenstein", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fallen_angles {
+            get {
+                object obj = ResourceManager.GetObject("fallen_angles", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap howling_beats {
+            get {
+                object obj = ResourceManager.GetObject("howling_beats", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap walking_dead {
+            get {
+                object obj = ResourceManager.GetObject("walking_dead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
