@@ -75,7 +75,6 @@ namespace Welcome
             System.Text.Encoding encoding = request.ContentEncoding;
             System.IO.StreamReader reader = new System.IO.StreamReader(body, encoding);
             string input = reader.ReadToEnd();
-            Console.WriteLine(input);
 
 
             var temp = input.Split('=');
@@ -103,11 +102,11 @@ namespace Welcome
 
         public void updateFrom(String indexNo)
         {
-            
+            pctBox.Visible = false;
             if (personMap.ContainsKey(indexNo))
             {
                 Person person = personMap[indexNo];
-
+                pctBox.Visible = true;
 
                 Image frame0 = Properties.Resources.walking_dead;
                 Image frame1 = Properties.Resources.fallen_angles;
@@ -156,12 +155,7 @@ namespace Welcome
                 //todo: based on the group pick image
                 
                 pctBox.Image = Properties.Resources.anm_im;
-                pctBox.Visible = false;
-                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-                timer.Interval = 300;
-                timer.Tick += (source, e) => { pctBox.Visible = true; timer.Stop(); };
-                timer.Start();
-                
+                    
                 
 
 
@@ -194,6 +188,7 @@ namespace Welcome
                                 Image newBg = Image.FromFile($"C:\\Night_out\\{person.indexNo}_out.jpg");
 
                                 this.BackgroundImage = newBg;
+                                
                             }
                             catch (Exception ex)
                             {
@@ -206,8 +201,8 @@ namespace Welcome
                 {
 
                 }
-                
-                
+
+                pctBox.Visible = false;
             }
         }
 
@@ -352,7 +347,7 @@ namespace Welcome
             personMap.Add("170676", new Person("170676P", "0", "Gihan Ayeshmantha "));
             personMap.Add("170669", new Person("170669X", "1", "Disura Warusawithana "));
             personMap.Add("170243", new Person("170243L", "3", "Isuranga Iniyage "));
-            personMap.Add("170414", new Person("170414", "T", "Name"));
+            personMap.Add("170414", new Person("170414", "3", "Name"));
 
         }
 
